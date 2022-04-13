@@ -1,0 +1,78 @@
+
+
+Linear Regression test_error = 0.7702
+
+
+SVM one vs. rest test_error: 0.007600000000000051
+Multiclass SVM test_error: 0.08189999999999997
+
+
+softmax test_error= 0.07679999999999998
+softmax test_error mod3= 0.18720000000000003
+
+
+#######################################################################
+# 8. Ensemble methods
+#######################################################################
+
+(default - decision stupms)
+Training accuracy for AdaBoost:                    0.7324
+Validation accuracy for AdaBoost:                  0.7296
+
+(trees - max_depth=2, random_state=1)
+Training accuracy for AdaBoost:                    0.7702
+Validation accuracy for AdaBoost:                  0.7633
+
+Training accuracy for Gradient Boosting:           0.8034
+Validation accuracy for Gradient Boosting:         0.7923
+
+Training accuracy for Random Forest:                    1.0000
+Validation accuracy for Random Forest:                  0.9705
+
+#######################################################################
+# 9. Kernels on SVM
+#######################################################################
+
+DEFAULT:
+C=1.0
+
+Training accuracy for SVM w/ Linear Kernel:        0.9707
+Validation accuracy for SVM w/ Linear Kernel:      0.9403
+
+Training accuracy for SVM w/ Polynomial Kernel:    1.0000
+Validation accuracy for SVM w/ Polynomial Kernel:  0.9787
+
+Training accuracy for SVM w/ RBF Kernel:           0.9899
+Validation accuracy for SVM w/ RBF Kernel:         0.9792
+
+Training accuracy for SVM w/ Sigmoid Kernel:       0.7700
+Validation accuracy for SVM w/ Sigmoid Kernel:     0.7759
+
+----------------------------------------------------------
+Hyperparameter optimization
+----------------------------------------------------------
+
+Linear kernel:
+
+Cs = [1, 0.75, 0.5, 0.25, 0.1, 0.01]
+lower C     - larger margin
+lower gamma - larger radius of influence
+
+Training accuracies: [0.9707, 0.9693, 0.9668, 0.9635, 0.9587, 0.9451]
+Validation accuracies: [0.9403, 0.9418, 0.943, 0.9453, 0.9474, 0.9443]
+
+Best C = 0.1
+----------------------------------------------------------
+
+RBF kernel:
+
+Cs = [0.5, 0.1]
+gammas = [1.0, 0.1]
+
+Training accuracies: [[0.2168, 0.9954], [0.1123, 0.7518]]
+Validation accuracies: [[0.1826, 0.9219], [0.1135, 0.7081]]
+
+
+----------------------------------------------------------
+Grid search on toy example:
+The best parameters are {'C': 1000000.0, 'gamma': 0.001} with a score of 0.93
